@@ -20,5 +20,41 @@
 
         //Telefonos
         public string Telefonos { get; set; }
+
+        public bool Valido { get; set; }
+
+        public string Detalle { get; set; }
+
+        public Cine() { }
+         
+        public Cine(string[] aRegistro)
+        {
+            setRegistro(aRegistro);
+        }
+
+        internal void setRegistro(string[] aRegistro)
+        {
+            Valido = aRegistro != null;
+            if (!Valido) return;
+            id = int.Parse(aRegistro[0]);
+            RazonSocial = aRegistro[1];
+            Salas = int.Parse(aRegistro[2]);
+            idDistrito = int.Parse(aRegistro[3]);
+            Direccion = aRegistro[4];
+            Telefonos = aRegistro[5];
+            Detalle = aRegistro[6];
+        }
+
+        internal List<Cine> getList(string[][] mRegistros)
+        {
+            if (mRegistros == null) return null;
+
+            List<Cine> lstCine = new List<Cine>();
+            foreach (string[] aRegistro in mRegistros)
+            {
+                lstCine.Add(new Cine(aRegistro));
+            }
+            return lstCine;
+        }
     }
 }

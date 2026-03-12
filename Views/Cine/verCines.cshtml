@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Cinestar.Models.Cine>
 @{
     Layout = "~/Views/Shared/_cinestar.cshtml";
 }
@@ -6,15 +6,29 @@
 <br />
 <h1>Nuestros Cines</h1>
 <br />
-<div class="contenido-cine">
-    <img src="~/content/img/cine/1.1.jpg" width="227" height="170" />
-    <div class="datos-cine">
-        <h4>Excelsior</h4><br />
-        <span>Jirón de la Unión 780 - Lima<br /><br />Teléfono: 714-1865 anexo 865</span>
+@if (Model != null && Model.Count > 0)
+{
+    foreach (var oCine in Model)
+    {
+        <div class="contenido-cine">
+            <img src="~/content/img/cine/@(oCine.id).1.jpg" width="227" height="170" />
+            
+            <div class="datos-cine">
+                <h4>@oCine.RazonSocial</h4><br />
+                <span>@oCine.Direccion - @oCine.Detalle<br /><br />Teléfono: @oCine.Telefonos</span>
+            </div>
+            <br />
+            
+            <a href='@Url.Action("verCine", "Cine", new { id = oCine.id })'>
+                <img src="~/content/img/varios/ico-info2.png" width="150" height="40" />
+            </a>
+        </div>
+    }
+}
+else
+{
+    <div style="padding: 20px; color: red;">
+        <h3>Ups, no se pudieron cargar los cines.</h3>
+        <p>Verifica que la cadena de conexión sea correcta y que la base de datos tenga registros.</p>
     </div>
-    <br />
-    <a href='@Url.Action("verCine","Cine", new{idCine = 1})'>
-        <img src="~/content/img/varios/ico-info2.png" width="150" height="40" />
-    </a>
-</div>
-
+}
