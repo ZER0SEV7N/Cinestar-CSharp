@@ -51,7 +51,8 @@ namespace Cinestar.database
             if (dt.Rows.Count == 0) return null;
             int i = 0;
             string[][] mRegistros = new string[dt.Rows.Count][];
-            foreach(DataRow dr in dt.Rows) mRegistros[i++] = System.Array.ConvertAll(dr.ItemArray, x => x?.ToString()?.Trim() ?? ""); 
+            foreach(DataRow dr in dt.Rows) 
+                mRegistros[i++] = System.Array.ConvertAll(dr.ItemArray, x => x?.ToString()?.Trim() ?? ""); 
             return mRegistros;
         }
     }
