@@ -10,7 +10,7 @@ namespace Cinestar.Datos
         //Constructor para inicializar la clase clsBD con la configuración de la cadena de conexión
         public daoPelicula(IConfiguration configuration)
         {
-            clsBD = new clsBD(configuration, "CadenaSQLLocal");
+            clsBD = new clsBD(configuration, "CadenaSQLAzure");
         }
         //Metodo para obtener todas las peliculas de un cine en especifico
         internal List<Pelicula> getVerPeliculas(int id)

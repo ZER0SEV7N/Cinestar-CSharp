@@ -14,7 +14,7 @@
 	<div class="cine-info datos">
 		<p>@cine.Direccion - @cine.Detalle</p>
 		<p>Teléfono: @cine.Telefonos</p>
-		<br />
+		<br>
 		<div class="tabla">
 			@foreach (var oCineTarifa in lstCineTarifas)
 			{
@@ -31,18 +31,18 @@
 		</div>
 	</div>
     
-	<img src="~/content/img/cine/@(cine.id).2.jpg" />
-	<br /><br /><h4>Los horarios de cada función están sujetos a cambios sin previo aviso.</h4><br />
+	<img src="~/content/img/cine/@(cine.id).2.jpg"/>
+	<br><br><h4>Los horarios de cada función están sujetos a cambios sin previo aviso.</h4><br>
 	
 	<div class="cine-info peliculas">
 		<div class="tabla">
 			<div class="fila">
+				
 				<div class="celda-cabecera">Películas</div>
 				<div class="celda-cabecera">Horarios</div>
 			</div>
-            
 			@{
-				bolFila = true;
+				bolFila = false;
 			}
 			@foreach (var oCinePelicula in lstCinePeliculas)
 			{
