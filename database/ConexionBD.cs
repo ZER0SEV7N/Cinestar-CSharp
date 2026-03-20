@@ -6,7 +6,7 @@ using System.Data;
 namespace Cinestar.database
 {
     //Conexion a la base de datos
-    public class clsBD
+    public class ConexionBD
     {
         //Cadena de conexion
         SqlConnection cn = null;
@@ -14,22 +14,21 @@ namespace Cinestar.database
         SqlDataAdapter da = null;
 
         //Constructor
-        public clsBD(IConfiguration configuration, string bd)
+        public ConexionBD(IConfiguration configuration, string bd)
         {
             cn = new SqlConnection(configuration.GetConnectionString(bd));
             cmd = new SqlCommand("", cn);
             da = new SqlDataAdapter(cmd);
         }
 
-
-        //Setencia SQL
+        //Metodo para ejecutar una sentencia SQL
         internal void Setencia(string SQL)
         {
             cmd.CommandText = SQL;
             cmd.Parameters.Clear();
         }
 
-        //Obtener un DataTable
+        //Metodo para obtener un DataTable
         internal DataTable getDataTable()
         {
             DataTable dt = new DataTable();
@@ -37,14 +36,14 @@ namespace Cinestar.database
             return dt;
         }
 
-        //Obtener un registro
+        //Metodo para obtener un registro
         internal string[]? getRegistro()
         {
             DataTable dt = getDataTable();
             if (dt.Rows.Count == 0) return null;
             return System.Array.ConvertAll(dt.Rows[0].ItemArray, x => x?.ToString()?.Trim() ?? "");
         }
-        //Obtener los registros
+        //Metodo para obtener los registros
         internal string[][] getRegistros()
         {
             DataTable dt = getDataTable();

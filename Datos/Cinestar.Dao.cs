@@ -4,14 +4,14 @@ using Microsoft.Extensions.Configuration;
 
 namespace Cinestar.Datos
 {
-    public class daoCine
+    public class daoCinestar
     {
-        private readonly clsBD clsBD;
+        private readonly ConexionBD clsBD;
 
         //Constructor para inicializar la clase clsBD con la configuración de la cadena de conexión
-        public daoCine(IConfiguration configuration)
+        public daoCinestar(IConfiguration configuration)
         {
-            clsBD = new clsBD(configuration, "CadenaSQLAzure");
+            clsBD = new ConexionBD(configuration, "CadenaSQLAzure");
         }
 
         //Metodo para obtener un cine en especifico
@@ -44,6 +44,19 @@ namespace Cinestar.Datos
         {
             clsBD.Setencia($"exec sp_getCinePeliculas {idCine}");
             return new CinePelicula().getList(clsBD.getRegistros());
+        }
+        //Metodo para obtener todas las peliculas de un cine en especifico
+        internal List<Pelicula> getVerPeliculas(int id)
+        {
+            clsBD.Setencia($"exec sp_getPeliculas {id}");
+            return new Pelicula().getList(clsBD.getRegistros());
+        }
+
+        //Metodo para obtener una pelicula en especifico
+        internal Pelicula getVerPelicula(int idPelicula)
+        {
+            clsBD.Setencia($"exec sp_getPelicula {idPelicula}");
+            return new Pelicula(clsBD.getRegistro());
         }
     }
 }

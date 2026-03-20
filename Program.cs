@@ -22,7 +22,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Cine}/{action=Inicio}/{id?}")
+    pattern: "{controller=Cinestar}/{action=Inicio}/{id?}")
     .WithStaticAssets();
 
 
