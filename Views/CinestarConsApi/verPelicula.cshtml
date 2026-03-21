@@ -1,0 +1,52 @@
+﻿@{
+	// 1. Recibimos el ViewBag con el nombre correcto
+	Cinestar.Models.Pelicula Pelicula = ViewBag.Pelicula;
+	ViewData["Title"] = "verPelicula";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h1>Cartelera</h1>
+<br />
+
+<div class="contenido-pelicula">
+	<div class="datos-pelicula">
+		<h2>@Pelicula.Titulo</h2>
+		<p>@Pelicula.Sinopsis</p>
+		<br />
+		<div class="tabla">
+			<div class="fila">
+				<div class="celda-titulo">Título Original :</div>
+				<div class="celda">@Pelicula.Titulo</div>
+			</div>
+			<div class="fila">
+				<div class="celda-titulo">Estreno :</div>
+				<div class="celda">@Pelicula.FechaEstreno</div>
+			</div>
+			<div class="fila">
+				<div class="celda-titulo">Género :</div>
+				<div class="celda">@Pelicula.Generos</div>
+			</div>
+			<div class="fila">
+				<div class="celda-titulo">Director :</div>
+				<div class="celda">@Pelicula.Director</div>
+			</div>
+			<div class="fila">
+				<div class="celda-titulo">Reparto :</div>
+				<div class="celda">@Pelicula.Reparto</div>
+			</div>
+		</div>
+	</div>
+	    
+	<img src="~/content/img/pelicula/@(Pelicula.id).jpg" width="160" height="226"><br /><br />
+</div>
+
+<div class="pelicula-video">
+	<iframe width="580" height="400"
+			src="https://www.youtube.com/embed/@Pelicula.Link"
+			title="YouTube video player"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowfullscreen>
+	</iframe>
+</div>

@@ -1,7 +1,5 @@
 ﻿using Cinestar.Datos;
 using Microsoft.AspNetCore.Mvc;
-using Cinestar.database;
-using Microsoft.Extensions.Configuration;
 
 namespace Cinestar.Controllers
 {
@@ -20,7 +18,7 @@ namespace Cinestar.Controllers
             return View();
         }
         //GET: VerCines
-        public IActionResult verCines()
+        public IActionResult nuestrosCines()
         {
             return View(_daoCinestar.getVerCines() );
         }
@@ -35,7 +33,7 @@ namespace Cinestar.Controllers
         }
 
         //GET: verPeliculas (id)
-        public ActionResult verPeliculas(int id)
+        public ActionResult cartelera(int id)
         {
             return View(_daoCinestar.getVerPeliculas(id));
         }

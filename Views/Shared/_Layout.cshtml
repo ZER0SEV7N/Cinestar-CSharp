@@ -12,14 +12,14 @@
 <body>
 	<header>
 		<nav class="nav-sec">
-			@Html.ActionLink("Inicio", "Inicio", "Cine")&nbsp;&nbsp;l&nbsp;&nbsp;
+			@Html.ActionLink("Inicio", "Inicio", "CinestarConsApi")&nbsp;&nbsp;l&nbsp;&nbsp;
 			<a href="http://www.cinestar.com.pe/quienes_somos">Quiénes somos</a>&nbsp;&nbsp;l&nbsp;&nbsp;
 			<a href="http://www.cinestar.com.pe/trabaja_con_nosotros">Trabaja con nosotros</a>&nbsp;&nbsp;l&nbsp;&nbsp;
 			<a href="https://www.efact.pe/consult.html" target="_blank">Consulta tu comprobante de pago </a>&nbsp;&nbsp;l&nbsp;&nbsp;
 			<a href="http://www.cinestar.com.pe/contactenos/#contenido_titulo" class="anchorLink">Contáctenos</a>
 		</nav>
 		<div class="area-logo">
-			<a href='@Url.Action("Inicio", "Cine")'> <img src="~/content/img/varios/logo-cinestar.png" /></a>
+			<a href='@Url.Action("Inicio", "CinestarConsApi")'> <img src="~/content/img/varios/logo-cinestar.png" /></a>
 		</div>
 		<nav class="menu">
 			<span class="img-social">
@@ -28,10 +28,10 @@
 			</span>
 			<span class="social">Síguenos en: </span>
 			<ul class="menu-principal">
-				<li class="menu-item"><a href='@Url.Action("verPeliculas", "Pelicula", new { id = 1 })'>Cartelera</a></li>
-				<li class="menu-item"><a href='@Url.Action("verPeliculas", "Pelicula", new { id = 2 })'>Proximo Estrenos</a></li>
+				<li class="menu-item"><a href='@Url.Action("cartelera", "CinestarConsApi", new { id = 1 })'>Cartelera</a></li>
+				<li class="menu-item"><a href='@Url.Action("cartelera", "CinestarConsApi", new { id = 2 })'>Proximo Estrenos</a></li>
 				<li class="menu-item"><a href="http://www.cinestar.com.pe/starcard">Star Card</a></li>
-				<li class="menu-item"><a href='@Url.Action("verCines", "Cine")'>Nuestros Cines</a></li>
+				<li class="menu-item"><a href='@Url.Action("nuestrosCines", "CinestarConsApi")'>Nuestros Cines</a></li>
 				<li class="menu-item"><a href="http://www.cinestar.com.pe/ventas_corporativas">Ventas Corporativas</a></li>
 				<li class="menu-item"><a href="http://www.cinestar.com.pe/promociones">Promociones</a></li>
 				<li class="menu-item"><a href="http://www.cinestar.com.pe/cinefilo_star">Blog</a></li>
