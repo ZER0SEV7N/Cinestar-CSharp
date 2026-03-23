@@ -22,7 +22,7 @@ El proyecto MVC cuenta con dos vías de ejecución totalmente independientes que
 * **Base de Datos:** SQL Server / Azure SQL.
 * **Acceso a Datos:** ADO.NET (Sin ORM) utilizando los procedimientos almacenados.
 
-## ⚙️ Cómo ejecutar y probar los diferentes modos
+## Cómo ejecutar y probar los diferentes modos
 
 Para probar la versión que consume la API, **ambos proyectos (Web API y MVC) deben estar en ejecución simultáneamente**.
 **Paso 1: Configurar el modo de ejecución en el MVC**
