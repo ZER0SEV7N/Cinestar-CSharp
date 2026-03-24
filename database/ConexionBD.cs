@@ -1,7 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
 using System.Data;
-
 
 namespace Cinestar.database
 {
@@ -14,7 +12,7 @@ namespace Cinestar.database
         SqlDataAdapter da = null;
 
         //Constructor
-        public ConexionBD(IConfiguration configuration, string bd)
+        public ConexionBD(IConfiguration configuration, string bd )
         {
             cn = new SqlConnection(configuration.GetConnectionString(bd));
             cmd = new SqlCommand("", cn);
@@ -44,7 +42,7 @@ namespace Cinestar.database
             return System.Array.ConvertAll(dt.Rows[0].ItemArray, x => x?.ToString()?.Trim() ?? "");
         }
         //Metodo para obtener los registros
-        internal string[][] getRegistros()
+        internal string[][]? getRegistros()
         {
             DataTable dt = getDataTable();
             if (dt.Rows.Count == 0) return null;

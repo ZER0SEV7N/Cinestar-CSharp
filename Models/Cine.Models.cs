@@ -45,15 +45,14 @@
             Detalle = aRegistro[6];
         }
 
-        internal List<Cine> getList(string[][] mRegistros)
+        internal List<Cine>? getList(string[][]? mRegistros)
         {
             if (mRegistros == null) return null;
 
             List<Cine> lstCine = new List<Cine>();
             foreach (string[] aRegistro in mRegistros)
-            {
                 lstCine.Add(new Cine(aRegistro));
-            }
+            
             return lstCine;
         }
     }

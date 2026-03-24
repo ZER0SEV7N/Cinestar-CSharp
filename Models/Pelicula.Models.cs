@@ -81,10 +81,10 @@
         internal List<Pelicula> getList(string[][] mRegistros)
         {
             if (mRegistros == null) return null;
-            List<Pelicula> lstLista = new List<Pelicula>();
+            List<Pelicula> lstPelicula = new List<Pelicula>();
             foreach (string[] aRegistro in mRegistros)
-                lstLista.Add(new Pelicula(aRegistro));
-            return lstLista;
+                lstPelicula.Add(new Pelicula(aRegistro));
+            return lstPelicula;
         }
     }
 }

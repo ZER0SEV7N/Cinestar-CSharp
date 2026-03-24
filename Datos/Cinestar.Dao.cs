@@ -1,6 +1,5 @@
 ﻿using Cinestar.database;
 using Cinestar.Models;
-using Microsoft.Extensions.Configuration;
 
 namespace Cinestar.Datos
 {
@@ -17,7 +16,7 @@ namespace Cinestar.Datos
         //Metodo para obtener un cine en especifico
         internal Cine getCine(int idCine)
         {
-            _ConexionBD.Setencia($"exec sp_getCine {idCine}");
+            _ConexionBD.Setencia($"sp_getCine {idCine}");
 
             Cine cine = new Cine();
             cine.setRegistro(_ConexionBD.getRegistro());
@@ -28,34 +27,34 @@ namespace Cinestar.Datos
         //Metodo para obtener la lista de cines
         internal List<Cine> getVerCines()
         {
-            _ConexionBD.Setencia("exec sp_getCines");
+            _ConexionBD.Setencia("sp_getCines");
             return new Cine().getList(_ConexionBD.getRegistros());
         }
 
         //Metodo para obtener las tarifas de un cine
         internal dynamic getCineTarifas(int idCine)
         {
-            _ConexionBD.Setencia($"exec sp_getCineTarifas {idCine}");
+            _ConexionBD.Setencia($"sp_getCineTarifas {idCine}");
             return new CineTarifa().getList(_ConexionBD.getRegistros());
         }
 
         //Metodo para obtener las peliculas de un cine
         internal dynamic getCinePeliculas(int idCine)
         {
-            _ConexionBD.Setencia($"exec sp_getCinePeliculas {idCine}");
+            _ConexionBD.Setencia($"sp_getCinePeliculas {idCine}");
             return new CinePelicula().getList(_ConexionBD.getRegistros());
         }
         //Metodo para obtener todas las peliculas de un cine en especifico
         internal List<Pelicula> getVerPeliculas(int id)
         {
-            _ConexionBD.Setencia($"exec sp_getPeliculas {id}");
+            _ConexionBD.Setencia($"sp_getPeliculas {id}");
             return new Pelicula().getList(_ConexionBD.getRegistros());
         }
 
         //Metodo para obtener una pelicula en especifico
         internal Pelicula getVerPelicula(int idPelicula)
         {
-            _ConexionBD.Setencia($"exec sp_getPelicula {idPelicula}");
+            _ConexionBD.Setencia($"sp_getPelicula {idPelicula}");
             return new Pelicula(_ConexionBD.getRegistro());
         }
     }
