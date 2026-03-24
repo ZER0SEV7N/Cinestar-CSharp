@@ -12,7 +12,7 @@
         //Sala
         public int Sala { get; set; }
 
-        //Titulo de la pelicula (Solamente pq lo usa el procedimiento)
+        //Titulo de la pelicula 
         public string Titulo { get; set; }
 
         //Horarios
